@@ -7,4 +7,7 @@
     <string name="grouptext">그룹사</string>
     <string name="empid">회사사번</string>
     <string name="password">비밀번호</string>
+    <string name="bnk_noti_channel_id">BNKBeaconAlert</string>
+    <string name="bnk_noti_channel_name">BNK 비콘 알림</string>
+    <string name="beacon_found_noti_title">BNK 비콘</string>
 </resources>
