@@ -7,27 +7,68 @@
     tools:context=".IntroActivity">
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="80dp"
-        android:src="@drawable/bnkgroup"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        android:id="@+id/maintop"
+        android:layout_width="163dp"
+        android:layout_height="22.04dp"
+
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="84.92dp"
+        android:src="@drawable/maintop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.619"></ImageView>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="234dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="121.5dp"
+        android:text="@string/intromaintop"
+        android:textColor="#111111"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="200dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="179.9dp"
+        android:text="@string/introversion"
+        android:textColor="#666666"
+        android:textSize="13dp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:layout_width="166dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginLeft="97dp"
+        android:layout_marginTop="539.7dp"
+        android:text="@string/copyright"
+        android:textColor="#999999"
+        android:textSize="11dp"
+        android:gravity="center"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
+        android:layout_width="86.91dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="141.57dp"
+        android:layout_marginLeft="141.57dp"
+        android:layout_marginTop="330.85dp"
         android:src="@drawable/bus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

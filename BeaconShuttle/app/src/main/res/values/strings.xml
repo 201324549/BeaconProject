@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">BeaconShuttle</string>
+    <string name="intromaintop">셔틀버스시스템</string>
+    <string name="introversion">버전 1.2 업데이트 진행 중입니다.</string>
+    <string name="copyright">Copyright@2020 BNK System.co.kr</string>
+    <string name="logintext">로그인</string>
+    <string name="grouptext">그룹사</string>
+    <string name="empid">회사사번</string>
+    <string name="password">비밀번호</string>
 </resources>
