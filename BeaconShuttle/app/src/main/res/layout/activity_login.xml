@@ -1,76 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="99dp"
-        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="250dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="41dp"
-            android:src="@drawable/bnkgroup" />
+    <TextView
+        android:id="@+id/textlogin"
+        android:layout_width="89dp"
+        android:layout_height="39dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="74dp"
+        android:textSize="32dp"
+        android:text="@string/logintext"
+        android:textStyle="bold"
+        android:textColor="#111111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/loginId"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="22dp"
-            android:ems="10"
-            android:hint="(아이디)사번"
-            android:inputType="numberDecimal" />
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="152dp"
+        android:text="@string/grouptext"
+        android:textSize="13dp"
+        android:textColor="#333333"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/loginPassword"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="22dp"
-            android:ems="10"
-            android:hint="비밀번호"
-            android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/loginPassword"
+        android:layout_width="312dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="345dp"
+        android:hint="비밀번호"
+        android:textColor="#111111"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/loginId"
+        android:layout_width="312dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="25dp"
+        android:textColor="#111111"
+        android:layout_marginTop="264dp"
+        android:hint="(아이디)사번"
+        android:inputType="numberDecimal"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <CheckBox
-                android:id="@+id/saveId"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="아이디 저장" />
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="234dp"
+        android:text="@string/empid"
+        android:textColor="#333333"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <CheckBox
-                android:id="@+id/autoLogin"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="자동 로그인" />
-        </LinearLayout>
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="315dp"
+        android:text="@string/password"
+        android:textColor="#333333"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:onClick="loginClick"
-            android:text="로그인" />
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="312dp"
+        android:layout_height="46dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="448dp"
+        android:onClick="loginClick"
+        android:text="로그인"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/btn_color_drawable"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
-</RelativeLayout>
+    <CheckBox
+        android:id="@+id/saveId"
+        android:layout_width="100dp"
+        android:layout_height="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="392dp"
+        android:text="아이디 저장"
+        android:textSize="13dp"
+        android:textColor="#999999"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/autoLogin"
+        android:layout_width="100dp"
+        android:layout_height="16dp"
+        android:layout_marginLeft="196dp"
+        android:layout_marginTop="392dp"
+        android:text="자동 로그인"
+        android:textColor="#999999"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
