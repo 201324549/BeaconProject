@@ -133,14 +133,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="538dp"
-        android:onClick="coronaClick"
-        />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
