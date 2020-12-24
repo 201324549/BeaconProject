@@ -1,9 +1,12 @@
 package com.bnk.test.beaconshuttle;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -114,6 +117,32 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             return false;
         }
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                String alertTitle = "셔틀버스시스템";
+                String buttonMessage = "앱을 종료하시겠습니까?";
+                String buttonYes = "예";
+                String buttonNo = "아니오";
+
+                new AlertDialog.Builder(LoginActivity.this)
+                        .setTitle(alertTitle)
+                        .setMessage(buttonMessage)
+                        .setPositiveButton(buttonYes, new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                moveTaskToBack(true);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton(buttonNo, null)
+                        .show();
+        }
+        return true;
     }
 
 }
