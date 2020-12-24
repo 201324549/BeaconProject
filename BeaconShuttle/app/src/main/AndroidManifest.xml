@@ -15,8 +15,23 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
+        <service android:name=".service.SearchBeaconService"
+            android:stopWithTask="false"/>
+        <receiver android:name=".service.BluetoothAutoRunReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="BluetoothAutoRunReceiver">
+
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
         <activity android:name=".LoginActivity"
             android:screenOrientation="portrait">
 

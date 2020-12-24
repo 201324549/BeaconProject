@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();
         } else {
             Toast.makeText(v.getContext(), "아이디 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
         }
