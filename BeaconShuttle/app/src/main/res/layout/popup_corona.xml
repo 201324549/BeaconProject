@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fontFamily="@font/fontcustom"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+
+            <ImageView
+                android:id="@+id/imageBnksys"
+                android:layout_width="87.38dp"
+                android:layout_height="13.33dp"
+                android:layout_marginTop="46.41dp"
+                android:layout_gravity="center"
+                android:src="@drawable/bnksys"
+                />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="24.27dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="코로나19 예방\n자가 진단 일일 문진"
+                android:textColor="#111111"
+                android:textSize="22dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/coronaDatetime"
+                android:layout_width="100dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="11.98dp"
+                android:text="2999-01-01(일)"
+                android:textColor="#666666"
+                android:textSize="13dp" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="262dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="#DDDDDD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="236dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
+                android:text="1. 발열 또는 호흡기 증상(기침, 가래, 인후통, 콧물), 새로 생긴 후각이나 미각 소실 여부"
+                android:textColor="#333333"
+                android:textSize="14dp" />
+
+            <RadioGroup
+                android:id="@+id/cronaq1"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/cronaq1yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:text="예"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+
+                <RadioButton
+                    android:id="@+id/cronaq1no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="아니오"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="236dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="25dp"
+                android:text="2. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:textColor="#333333"
+                android:textSize="14dp" />
+
+            <RadioGroup
+                android:id="@+id/cronaq2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/cronaq2yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:text="예"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+
+                <RadioButton
+                    android:id="@+id/cronaq2no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="아니오"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="236dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
+                android:text="3. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:textColor="#333333"
+                android:textSize="14dp" />
+
+            <RadioGroup
+                android:id="@+id/cronaq3"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/cronaq3yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:text="예"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+
+                <RadioButton
+                    android:id="@+id/cronaq3no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="아니오"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="236dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="25dp"
+                android:text="4. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:textColor="#333333"
+                android:textSize="14dp" />
+
+            <RadioGroup
+                android:id="@+id/cronaq4"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/cronaq4yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:text="예"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+
+                <RadioButton
+                    android:id="@+id/cronaq4no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="아니오"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="236dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="25dp"
+                android:text="5. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:textColor="#333333"
+                android:textSize="14dp" />
+
+            <RadioGroup
+                android:id="@+id/cronaq5"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/cronaq5yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:text="예"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+
+                <RadioButton
+                    android:id="@+id/cronaq5no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="아니오"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="236dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="25dp"
+                android:text="6. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:textColor="#333333"
+                android:textSize="14dp"/>
+
+            <RadioGroup
+                android:id="@+id/cronaq6"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+                android:orientation="horizontal"
+
+                android:theme="@style/custom_radio_button">
+
+                <RadioButton
+                    android:id="@+id/cronaq6yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:text="예"
+                    android:textColor="#999999"
+                    android:textSize="12dp" />
+
+                <RadioButton
+                    android:id="@+id/cronaq6no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="아니오"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="236dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="25dp"
+                android:text="7. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:textColor="#333333"
+                android:textSize="14dp" />
+
+            <RadioGroup
+                android:id="@+id/cronaq7"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"
+
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/cronaq7yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:text="예"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+
+                <RadioButton
+                    android:id="@+id/cronaq7no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="아니오"
+                    android:textColor="#999999"
+                    android:textSize="12dp"
+                    android:theme="@style/custom_radio_button" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/coronaSubmit"
+                android:layout_width="262dp"
+                android:layout_height="36dp"
+                android:background="@drawable/btn_radius"
+                android:textColor="#FFFFFF"
+                android:textSize="14dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="제출"
+                android:enabled="true"
+
+                />
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
