@@ -15,4 +15,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="custom_radio_button" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#CB2B11</item>
+        <item name="colorControlNormal">#D6D6D7</item>
+
+    </style>
 </resources>

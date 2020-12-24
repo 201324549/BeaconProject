@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".IntroActivity">
-
     <ImageView
         android:id="@+id/maintop"
         android:layout_width="163dp"
@@ -23,6 +23,7 @@
         android:layout_height="36dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="121.5dp"
+        android:fontFamily="@font/fontcustom"
         android:text="@string/intromaintop"
         android:textColor="#111111"
         android:textSize="30dp"
@@ -37,6 +38,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="179.9dp"
+        android:fontFamily="@font/fontcustom"
         android:text="@string/introversion"
         android:textColor="#666666"
         android:textSize="13dp"
@@ -48,16 +50,16 @@
     <TextView
         android:layout_width="166dp"
         android:layout_height="13dp"
-        android:layout_marginStart="97dp"
         android:layout_marginLeft="97dp"
-        android:layout_marginTop="539.7dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:fontFamily="@font/fontcustom"
         android:text="@string/copyright"
         android:textColor="#999999"
         android:textSize="11dp"
-        android:gravity="center"
         android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"

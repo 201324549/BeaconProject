@@ -6,11 +6,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -23,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     Boolean loginChecked;
-
 
 
     @Override
@@ -122,10 +126,10 @@ public class LoginActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
-                String alertTitle = "셔틀버스시스템";
-                String buttonMessage = "앱을 종료하시겠습니까?";
-                String buttonYes = "예";
-                String buttonNo = "아니오";
+                String alertTitle = "안내메시지";
+                String buttonMessage = "로그아웃 하시겠습니까?";
+                String buttonYes = "확인";
+                String buttonNo = "취소";
 
                 new AlertDialog.Builder(LoginActivity.this)
                         .setTitle(alertTitle)
@@ -141,8 +145,310 @@ public class LoginActivity extends AppCompatActivity {
                         })
                         .setNegativeButton(buttonNo, null)
                         .show();
+                break;
         }
         return true;
     }
+
+
+    public void successSubmit() {
+        String alertTitle = "안내메시지";
+        String buttonMessage = "정상적으로 입력되었습니다.";
+        String buttonYes = "확인";
+
+        new AlertDialog.Builder(LoginActivity.this)
+                .setTitle(alertTitle)
+                .setMessage(buttonMessage)
+                .setPositiveButton(buttonYes, new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+    }
+
+    public void coronaClick(View v){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.popup_corona, null);
+        builder.setView(layout);
+        AlertDialog Ad = builder.create();
+        Ad.show();
+
+        Button submitBtn = (Button)layout.findViewById(R.id.coronaSubmit);
+        submitBtn.setEnabled(false);
+        RadioButton rb1_1 = (RadioButton)layout.findViewById(R.id.cronaq1yes);
+        RadioButton rb1_2 = (RadioButton)layout.findViewById(R.id.cronaq1no);
+        RadioButton rb2_1 = (RadioButton)layout.findViewById(R.id.cronaq2yes);
+        RadioButton rb2_2 = (RadioButton)layout.findViewById(R.id.cronaq2no);
+        RadioButton rb3_1 = (RadioButton)layout.findViewById(R.id.cronaq3yes);
+        RadioButton rb3_2 = (RadioButton)layout.findViewById(R.id.cronaq3no);
+        RadioButton rb4_1 = (RadioButton)layout.findViewById(R.id.cronaq4yes);
+        RadioButton rb4_2 = (RadioButton)layout.findViewById(R.id.cronaq4no);
+        RadioButton rb5_1 = (RadioButton)layout.findViewById(R.id.cronaq5yes);
+        RadioButton rb5_2 = (RadioButton)layout.findViewById(R.id.cronaq5no);
+        RadioButton rb6_1 = (RadioButton)layout.findViewById(R.id.cronaq6yes);
+        RadioButton rb6_2 = (RadioButton)layout.findViewById(R.id.cronaq6no);
+        RadioButton rb7_1 = (RadioButton)layout.findViewById(R.id.cronaq7yes);
+        RadioButton rb7_2 = (RadioButton)layout.findViewById(R.id.cronaq7no);
+
+        rb1_1.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                   (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                   (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                   (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                   (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                   (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                   (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                  submitBtn.setEnabled(true);
+                }
+            }
+        });
+
+        rb1_2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+            }
+        });
+        rb2_1.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+        rb2_2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+
+        rb3_1.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+        rb3_2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+
+        rb4_1.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+        rb4_2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+
+        rb5_1.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+        rb5_2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+
+        rb6_1.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+        rb6_2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+
+        rb7_1.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+        rb7_2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if((rb1_1.isChecked() || rb1_2.isChecked()) &&
+                        (rb2_1.isChecked() || rb2_2.isChecked()) &&
+                        (rb3_1.isChecked() || rb3_2.isChecked()) &&
+                        (rb4_1.isChecked() || rb4_2.isChecked()) &&
+                        (rb5_1.isChecked() || rb5_2.isChecked()) &&
+                        (rb6_1.isChecked() || rb6_2.isChecked()) &&
+                        (rb7_1.isChecked() || rb7_2.isChecked())
+                ) {
+                    submitBtn.setEnabled(true);
+                }
+
+            }
+        });
+
+        submitBtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Ad.dismiss();
+               successSubmit();
+            }
+        });
+
+
+    }
+
+
 
 }
