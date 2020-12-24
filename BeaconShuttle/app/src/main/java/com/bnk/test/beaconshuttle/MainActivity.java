@@ -39,9 +39,11 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         ImageButton imageButton = findViewById(R.id.imageButton);
+
+
+
         View layout = inflater.inflate(R.layout.custom_dialog, null);
         builder.setView(layout);
-
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
