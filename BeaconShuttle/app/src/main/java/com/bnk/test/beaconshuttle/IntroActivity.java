@@ -26,6 +26,7 @@ public class IntroActivity extends Activity {
             if (msg.what == 1){
                 Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         }
     };
