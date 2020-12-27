@@ -16,6 +16,9 @@
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".RouteActivity"
+            android:screenOrientation="portrait">
+        </activity>
         <service android:name=".service.SearchBeaconService"
             android:stopWithTask="false"/>
         <receiver android:name=".service.BluetoothAutoRunReceiver"
