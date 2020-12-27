@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -46,6 +47,7 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -82,8 +84,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView infoTextView;
     private ImageButton beaconButton;
 
+    private String rot;
     private boolean mBound = false;
-
+    private String[] days = {"일", "월", "화", "수", "목", "금", "토"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,10 +98,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         userTextView = findViewById(R.id.userTextView);
-        timeTextView = findViewById(R.id.timeTextView);
-        dateTextView = findViewById(R.id.dateTextView);
-        comGroupTextView = findViewById(R.id.comGroupTextView);
-        userNameTextView = findViewById(R.id.userNameTextView);
         infoTextView = findViewById(R.id.infoTextView);
         beaconButton = findViewById(R.id.beaconButton);
         User user = getUserInfo();
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void searchStart() {
-            setBeaconText(null, null);
+            setBeaconText(null, null, null);
             Toast.makeText(MainActivity.this, "비콘 검색 시작", Toast.LENGTH_SHORT).show();
         }
 
@@ -159,19 +158,20 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "비콘 검색 종료", Toast.LENGTH_SHORT).show();
         }
 
-
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
         public void foundBeacons(Collection<MinewBeacon> beacons){
             if (beacons != null && beacons.size() > 0) {
                 for (MinewBeacon beacon : beacons) {
                     String beaconKey = beacon.getUuid() + beacon.getMajor() + beacon.getMinor();
+                    beaconKey = beaconKey.replaceAll("-", "");
                     String bType = beaconMap.getOrDefault(beaconKey, Global.UNKNOWN);
-                    Log.d(TAG, String.format("Beacon %s called", bType));
+                    Log.d(TAG, String.format("Beacon Key: %s called", beaconKey));
+                    Log.d(TAG, String.format("BTYPE : %s called", bType));
+                    Log.d(TAG, String.format("Beacon Name : %s called", beacon.getName()));
                     if(!bType.equals(Global.UNKNOWN)) {
-                        User u = getUserInfo();
-                        setBeaconText(u, bType);
-
+                        rot = bType;
+                        Log.d(TAG, String.format("ROT : %s called", rot));
                         if (searchBeaconService != null) {
                             searchBeaconService.searchStop();
                         }
@@ -193,11 +193,13 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void mOnClick(View v) {
+        startPermissions();
         if (mBound) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             LayoutInflater inflater = getLayoutInflater();
-            ImageButton imageButton = findViewById(R.id.beaconButton);
             View layout = inflater.inflate(R.layout.custom_dialog, null);
+            setBeaconText(layout, getUserInfo(), rot);
+
             Button button3 = layout.findViewById(R.id.button3);
             button3.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -213,15 +215,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setBeaconText(User user, String busType) {
+    private void setBeaconText(View v, User user, String busType) {
+        if (v == null) {
+            return;
+        }
+        Date date = new Date(System.currentTimeMillis());
+        String time = new SimpleDateFormat("HH:mm:ss").format(date);
+        String today = new SimpleDateFormat("yyyy.MM.dd").format(date);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        today = String.format("%s(%s)", today, days[day-1]);
+        Log.d(TAG, "setBeaconText() called");
+        timeTextView = v.findViewById(R.id.timeTextView);
+        dateTextView = v.findViewById(R.id.dateTextView);
+        comGroupTextView = v.findViewById(R.id.comGroupTextView);
+        userNameTextView = v.findViewById(R.id.userNameTextView);
         if (user != null && busType != null ) {
-            Date date = new Date(System.currentTimeMillis());
-            String time = new SimpleDateFormat("HH:mm:ss").format(date);
-            String today = new SimpleDateFormat("yyyy.MM.dd").format(date);
             timeTextView.setText(time);
             dateTextView.setText(today);
             comGroupTextView.setText(user.getCmgrp_cd());
             userNameTextView.setText(user.getUser_nm());
+        } else {
+            timeTextView.setText(time);
+            dateTextView.setText(today);
+            comGroupTextView.setText("인식 실패");
+            userNameTextView.setText("실패");
         }
     }
 
