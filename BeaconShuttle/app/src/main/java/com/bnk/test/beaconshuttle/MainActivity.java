@@ -18,6 +18,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.util.Log;
@@ -37,6 +38,7 @@ import com.bnk.test.beaconshuttle.model.User;
 import com.bnk.test.beaconshuttle.service.SearchBeaconService;
 import com.bnk.test.beaconshuttle.util.DataHelper;
 import com.bnk.test.beaconshuttle.util.Global;
+import com.bnk.test.beaconshuttle.util.MyApp;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.karumi.dexter.Dexter;
@@ -55,6 +57,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -87,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView infoTextView;
     private TextView destination;
     private ImageButton beaconButton;
+    private ImageButton beaconButtonOn;
 
     private String rot;
     private boolean mBound = false;
@@ -97,17 +102,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
         initDataBase();
-        startPermissions();
     }
 
     private void initView() {
         userTextView = findViewById(R.id.userTextView);
         infoTextView = findViewById(R.id.infoTextView);
         beaconButton = findViewById(R.id.beaconButton);
+        beaconButtonOn = findViewById(R.id.beaconButtonOn);
+        beaconButtonOn.setScaleX(1.45f);
+        beaconButtonOn.setScaleY(1.45f);
+
+        Glide.with(this).load(R.raw.beaconsearch).into(beaconButtonOn);
         User user = getUserInfo();
         userTextView.setText(String.format("%s %s님\n안녕하세요.", user.getUser_nm(), user.getEmpe_psit_nm()));
 
-        Glide.with(this).load(R.raw.beaconsearch).into(beaconButton).onStop();
+
     }
 
     private void initDataBase() {
@@ -155,8 +164,19 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void searchStart() {
+
             Log.d(TAG, String.format("MainAcitivity searchStart() called"));
-            setBeaconText(null, null, null);
+            Timer m_timer = new Timer();
+            TimerTask m_task = new TimerTask() {
+
+                @Override
+                public void run() {
+                    setBeaconText(null, null, null);
+
+                }
+            };
+
+            m_timer.schedule(m_task, 5000);
 //            Toast.makeText(MainActivity.this, "비콘 검색 시작", Toast.LENGTH_SHORT).show();
 
         }
@@ -203,30 +223,42 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void mOnClick(View v) {
-        //startPermissions();
-        if(searchBeaconService==null){
-            startPermissions();
-        }else{
-            searchBeaconService.searchStart();
-        }
+        beaconButton.setVisibility(View.INVISIBLE);
+        beaconButtonOn.setVisibility(View.VISIBLE);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.custom_dialog, null);
-        if (rot != null) {
-            setBeaconText(layout, getUserInfo(), rot);
-        } else {
-            setBeaconText(layout, null, rot);
-        }
-        Button button3 = layout.findViewById(R.id.button3);
-        button3.setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                dialog.dismiss();
+            public void run() {
+                if(searchBeaconService==null){
+                    startPermissions();
+
+                }else{
+                    searchBeaconService.searchStart();
+                }
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.custom_dialog, null);
+                if (rot != null) {
+                    setBeaconText(layout, getUserInfo(), rot);
+                } else {
+                    setBeaconText(layout, null, rot);
+                }
+                Button button3 = layout.findViewById(R.id.button3);
+                button3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.setView(layout);
+                dialog = builder.create();// 대화상자 객체 생성&화면보이기
+                dialog.show();
+                beaconButton.setVisibility(View.VISIBLE);
+                beaconButtonOn.setVisibility(View.INVISIBLE);
             }
-        });
-        builder.setView(layout);
-        dialog = builder.create();// 대화상자 객체 생성&화면보이기
-        dialog.show();
+        }, 3000);
+        //startPermissions();
+
 //        } else {
 //            Toast.makeText(v.getContext(), "비콘 검색 실패", Toast.LENGTH_SHORT).show();
 //        }
