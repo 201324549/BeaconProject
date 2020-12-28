@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/linearlayout"
     android:background="@color/white">
@@ -25,28 +23,14 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/testtext"
+    <LinearLayout
+        android:id="@+id/stoplist"
         android:visibility="gone"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hahahaha"
-        />
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:visibility="gone"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-<!--        <TextView-->
-<!--            android:id="@+id/stop_nm"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"/>-->
-<!--        <TextView-->
-<!--            android:id="@+id/stop_star"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"/>-->
-
-<!--    </androidx.recyclerview.widget.RecyclerView>-->
+        android:background="#FAFAFA"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
 
 </LinearLayout>
