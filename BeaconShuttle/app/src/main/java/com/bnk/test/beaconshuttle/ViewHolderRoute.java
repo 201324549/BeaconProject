@@ -1,7 +1,9 @@
 package com.bnk.test.beaconshuttle;
 
 import android.animation.ValueAnimator;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.util.SparseBooleanArray;
@@ -44,6 +46,21 @@ public class ViewHolderRoute extends RecyclerView.ViewHolder {
         stoplist.removeAllViews();
         for(DataStop ds : data.getListStop()){
             TextView view1 = new TextView(MyApp.getAppContext());
+            view1.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(v.getContext());
+                    alertDialogBuilder.setTitle(ds.getStop_nm()).setMessage("이미지 입니다").setCancelable(false).setPositiveButton("닫기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                }
+            });
             view1.setText(ds.getStop_nm());
             TextView view2 = new TextView(MyApp.getAppContext());
             view2.setText(ds.getStar_time());

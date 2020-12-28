@@ -48,9 +48,22 @@
             android:layout_marginStart="80dp"
             android:layout_marginLeft="80dp"
             android:layout_marginTop="34dp"
-            android:src="@drawable/icon_onoff"
+            android:src="@drawable/icon_sub_search_off"
             android:background="#00000000"
             android:onClick="mOnClick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoTextView" />
+
+        <ImageButton
+            android:id="@+id/beaconButtonOn"
+            android:layout_width="252dp"
+            android:layout_height="186dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginLeft="56dp"
+            android:layout_marginTop="48dp"
+            android:background="#00000000"
+            android:visibility="invisible"
+            android:src="@drawable/beaconsearch"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/infoTextView" />
 

@@ -70,7 +70,6 @@ public class RouteActivity extends AppCompatActivity {
                     data.getListStop().add(ds);
                 }
             }
-            adapter.notifyDataSetChanged();
             adapter.addItem(data);
         }
 
@@ -136,6 +135,7 @@ public class RouteActivity extends AppCompatActivity {
         go.setVisibility(View.GONE);
         leave.setVisibility(View.VISIBLE);
         checkGoLeave = new String("출근");
+        init();
         getData();
     }
 
@@ -144,6 +144,7 @@ public class RouteActivity extends AppCompatActivity {
         leave.setVisibility(View.GONE);
         go.setVisibility(View.VISIBLE);
         checkGoLeave = new String("퇴근");
+        init();
         getData();
     }
 
