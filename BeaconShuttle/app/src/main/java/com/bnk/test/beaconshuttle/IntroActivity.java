@@ -19,6 +19,8 @@ public class IntroActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setScaleX(3);
+        imageView.setScaleY(3);
         Glide.with(this).load(R.raw.bus).into(imageView);
         IntroThread introThread = new IntroThread(handler);
         introThread.start();

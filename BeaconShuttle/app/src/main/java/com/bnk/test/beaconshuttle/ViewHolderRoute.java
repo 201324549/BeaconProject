@@ -20,10 +20,8 @@ import com.bnk.test.beaconshuttle.util.MyApp;
 
 public class ViewHolderRoute extends RecyclerView.ViewHolder {
     TextView rot_nm;
-    TextView testtext;
     LinearLayout linearlayout;
     LinearLayout stoplist;
-    DataHelper dh;
     OnViewHolderItemClickListener onViewHolderItemClickListener;
     public ViewHolderRoute(@NonNull View itemView) {
         super(itemView);
