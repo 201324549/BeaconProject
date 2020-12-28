@@ -10,12 +10,15 @@ import android.provider.MediaStore;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -43,6 +46,44 @@ public class LoginActivity extends AppCompatActivity {
         loginId.setText(pref.getString("id", ""));
         saveId.setChecked(pref.getBoolean("saveId", false));
 
+        // [START SPINNER]
+        final String[] comGroups = {
+                "그룹사선택",
+                "BNK금융지주",
+                "BNK부산은행",
+                "BNK경남은행",
+                "BNK캐피탈",
+                "BNK투자증권",
+                "BNK저축은행",
+                "BNK자산운용",
+                "BNK신용정보",
+                "BNK시스템",
+                "BNK벤처투자",
+                "기타"};
+
+        Spinner spinner = (Spinner) findViewById(R.id.comGroupSpinner);
+
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, comGroups);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setFocusable(true);
+        spinner.setFocusableInTouchMode(true);
+        spinner.requestFocus();
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "그룹사 : " + comGroups[position], Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        // [END SPINNER]
 
         loginChecked = pref.getBoolean("autoLogin", false);
         if(!loginChecked) {
