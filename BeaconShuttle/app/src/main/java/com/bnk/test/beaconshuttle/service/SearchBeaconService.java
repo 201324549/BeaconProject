@@ -101,6 +101,7 @@ public class SearchBeaconService extends Service {
         }
         Log.d(TAG, "stopScan()");
         beaconManager.stopScan();
+        beaconManager.stopService();
         callBackToActivity.searchStop();
     }
 
@@ -131,6 +132,7 @@ public class SearchBeaconService extends Service {
             @Override
             public void onRangeBeacons(List<MinewBeacon> beacons) {
                 Log.d(TAG, "onRangeBeacons");
+                Log.d(TAG, String.format("onRangeBeacons: %s called", beacons.size()));
                 if (beacons.size() >= 1) {
                     foundBeacons(beacons);
                 }
