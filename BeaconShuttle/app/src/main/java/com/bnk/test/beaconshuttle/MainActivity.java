@@ -453,6 +453,7 @@ public class MainActivity extends AppCompatActivity {
         View layout = inflater.inflate(R.layout.popup_corona, null);
         builder.setView(layout);
         android.app.AlertDialog Ad = builder.create();
+        Log.d("test", "moonjin");
         Ad.show();
 
         Button submitBtn = (Button)layout.findViewById(R.id.coronaSubmit);
@@ -725,6 +726,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void routeClick(View v){
+        Intent intent = new Intent (MainActivity.this, RouteActivity.class);
+        startActivity(intent);
     }
 
 }
