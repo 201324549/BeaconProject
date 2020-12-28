@@ -4,6 +4,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,11 +33,16 @@ public class RouteActivity extends AppCompatActivity {
     private String[] stoplist = {"ROT_ID","STOP_NM", "STAR_TIME", "WORK"};
     private ArrayList<DataStop> stoparr = new ArrayList<>();
     RecyclerViewAdapter adapter;
-    private LinearLayout container;
+    private String checkGoLeave;
+    private ImageView go;
+    private ImageView leave;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route);
+        checkGoLeave = new String("출근");
+        go = (ImageView) findViewById(R.id.go);
+        leave = (ImageView) findViewById(R.id.leave);
         initDataBase();
         init();
         getData();
@@ -59,10 +66,11 @@ public class RouteActivity extends AppCompatActivity {
             data.setRot_nm(entry.getValue());
             int rotId = data.getRot_id();
             for(DataStop ds : stoparr){
-                if(ds.getRot_id() == rotId) {
+                if(ds.getRot_id() == rotId && ds.getWork().equals(checkGoLeave)) {
                     data.getListStop().add(ds);
                 }
             }
+            adapter.notifyDataSetChanged();
             adapter.addItem(data);
         }
 
@@ -120,5 +128,26 @@ public class RouteActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+
+    public void goClick(View v){
+        go.setVisibility(View.GONE);
+        leave.setVisibility(View.VISIBLE);
+        checkGoLeave = new String("출근");
+        getData();
+    }
+
+
+    public void leaveClick(View v){
+        leave.setVisibility(View.GONE);
+        go.setVisibility(View.VISIBLE);
+        checkGoLeave = new String("퇴근");
+        getData();
+    }
+
+    public void goBack(View v){
+        finish();
     }
 }
