@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView comGroupTextView;
     private TextView userNameTextView;
     private TextView infoTextView;
+    private TextView destination;
     private ImageButton beaconButton;
 
     private String rot;
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
         initDataBase();
-        //startPermissions()
+        startPermissions();
     }
 
     private void initView() {
@@ -181,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, String.format("ROT : %s called", rot));
                         if (searchBeaconService != null) {
                             searchBeaconService.searchStop();
-                            serviceClosed();
+//                            serviceClosed();
                         }
                         return;
                     }
@@ -189,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // 조회된 결과 중 일치하는 비콘이 없을 경우
                 searchBeaconService.searchStop();
-                serviceClosed();
+//                serviceClosed();
             }
         }
 
@@ -202,11 +203,16 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void mOnClick(View v) {
-        startPermissions();
+        //startPermissions();
+        if(searchBeaconService==null){
+            startPermissions();
+        }else{
+            searchBeaconService.searchStart();
+        }
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.custom_dialog, null);
-        if (mBound) {
+        if (rot != null) {
             setBeaconText(layout, getUserInfo(), rot);
         } else {
             setBeaconText(layout, null, rot);
@@ -242,16 +248,20 @@ public class MainActivity extends AppCompatActivity {
         dateTextView = v.findViewById(R.id.dateTextView);
         comGroupTextView = v.findViewById(R.id.comGroupTextView);
         userNameTextView = v.findViewById(R.id.userNameTextView);
+        destination = v.findViewById(R.id.destination);
         if (user != null && busType != null ) {
             timeTextView.setText(time);
             dateTextView.setText(today);
             comGroupTextView.setText(user.getCmgrp_cd());
             userNameTextView.setText(user.getUser_nm());
+            destination.setText(busType);
+            rot = null;
         } else {
             timeTextView.setText(time);
             dateTextView.setText(today);
             comGroupTextView.setText("인식 실패");
             userNameTextView.setText("실패");
+            destination.setText("Nothing");
         }
     }
 
