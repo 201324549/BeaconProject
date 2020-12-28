@@ -157,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, String.format("MainAcitivity searchStart() called"));
             setBeaconText(null, null, null);
 //            Toast.makeText(MainActivity.this, "비콘 검색 시작", Toast.LENGTH_SHORT).show();
+
         }
 
         @Override
@@ -202,7 +203,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void mOnClick(View v) {
         startPermissions();
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.custom_dialog, null);
