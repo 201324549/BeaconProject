@@ -1,5 +1,7 @@
 package com.bnk.test.beaconshuttle.model;
 
+import androidx.annotation.NonNull;
+
 /**
  * Onebiz User
  */
@@ -166,5 +168,11 @@ public class User {
 
     public void setUse_yn(String use_yn) {
         this.use_yn = use_yn;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return String.format("Name: %s, psit_nm: %s", user_nm, empe_psit_nm);
     }
 }
