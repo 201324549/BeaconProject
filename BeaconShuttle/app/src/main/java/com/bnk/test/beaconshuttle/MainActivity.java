@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView destination;
     private ImageButton beaconButton;
     private ImageButton beaconButtonOn;
-
+    private TextView coronaDatetime;
     private String rot;
     private boolean mBound = false;
     private String[] days = {"일", "월", "화", "수", "목", "금", "토"};
@@ -240,8 +240,12 @@ public class MainActivity extends AppCompatActivity {
                 View layout = inflater.inflate(R.layout.custom_dialog, null);
                 if (rot != null) {
                     setBeaconText(layout, getUserInfo(), rot);
+                    builder.setView(layout);
+                    dialog = builder.create();// 대화상자 객체 생성&화면보이기
+                    dialog.show();
+
                 } else {
-                    setBeaconText(layout, null, rot);
+                    Toast.makeText(v.getContext(), "비콘 탐색에 실패하였습니다." , Toast.LENGTH_LONG).show();
                 }
                 Button button3 = layout.findViewById(R.id.button3);
                 button3.setOnClickListener(new View.OnClickListener() {
@@ -250,11 +254,9 @@ public class MainActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-                builder.setView(layout);
-                dialog = builder.create();// 대화상자 객체 생성&화면보이기
-                dialog.show();
                 beaconButton.setVisibility(View.VISIBLE);
                 beaconButtonOn.setVisibility(View.INVISIBLE);
+
             }
         }, 3000);
         //startPermissions();
@@ -300,7 +302,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
-                String alertTitle = "셔틀버스시스템";
+                String alertTitle = "안내 메시지";
                 String buttonMessage = "앱을 종료하시겠습니까?";
                 String buttonYes = "예";
                 String buttonNo = "아니오";
@@ -503,7 +505,15 @@ public class MainActivity extends AppCompatActivity {
     public void coronaClick(View v){
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
+        Date date = new Date(System.currentTimeMillis());
+        String today = new SimpleDateFormat("yyyy.MM.dd").format(date);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        today = String.format("%s(%s)", today, days[day-1]);
         View layout = inflater.inflate(R.layout.popup_corona, null);
+        coronaDatetime = layout.findViewById(R.id.coronaDatetime);
+        coronaDatetime.setText(today);
         builder.setView(layout);
         android.app.AlertDialog Ad = builder.create();
         Log.d("test", "moonjin");

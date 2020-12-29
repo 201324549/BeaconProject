@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +31,7 @@ public class RouteActivity extends AppCompatActivity {
     private Cursor cur;
     private String[] routelist = {"ROT_ID", "ROT_NM"};
     private HashMap<Integer, String> rotMap = new HashMap<>();
-    private String[] stoplist = {"ROT_ID","STOP_NM", "STAR_TIME", "WORK"};
+    private String[] stoplist = {"IMG_ID","ROT_ID","STOP_NM", "STAR_TIME", "WORK"};
     private ArrayList<DataStop> stoparr = new ArrayList<>();
     RecyclerViewAdapter adapter;
     private String checkGoLeave;
@@ -64,6 +65,10 @@ public class RouteActivity extends AppCompatActivity {
             DataRoute data = new DataRoute();
             data.setRot_id(entry.getKey());
             data.setRot_nm(entry.getValue());
+            data.setCtx(RouteActivity.this);
+            data.setInflater(getLayoutInflater());
+            data.setV((View)findViewById(R.id.rotlayout));
+            data.setActivity(RouteActivity.this);
             int rotId = data.getRot_id();
             for(DataStop ds : stoparr){
                 if(ds.getRot_id() == rotId && ds.getWork().equals(checkGoLeave)) {
@@ -98,12 +103,14 @@ public class RouteActivity extends AppCompatActivity {
         cur = db.query("BO_STBM_STOP", stoplist, null, null, null, null, "STAR_TIME");
 
         if (cur != null) {
+            int imgIdCol = cur.getColumnIndex("IMG_ID");
             int stopNmCol = cur.getColumnIndex("STOP_NM");
             int timeCol = cur.getColumnIndex("STAR_TIME");
             int workCol = cur.getColumnIndex("WORK");
             int rotIdCol = cur.getColumnIndex("ROT_ID");
             while(cur.moveToNext()) {
                 int rotId = cur.getInt(rotIdCol);
+                String imgId = cur.getString(imgIdCol);
                 String stopNm = cur.getString(stopNmCol);
                 String starTime = cur.getString(timeCol);
                 String work = cur.getString(workCol);
@@ -112,6 +119,7 @@ public class RouteActivity extends AppCompatActivity {
                 ds.setStop_nm(stopNm);
                 ds.setStar_time(starTime);
                 ds.setWork(work);
+                ds.setImg_id(imgId);
                 stoparr.add(ds);
             }
             cur.close();

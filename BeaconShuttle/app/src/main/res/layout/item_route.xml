@@ -14,7 +14,7 @@
         <TextView
             android:padding="10dp"
             android:id="@+id/rot_nm"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:textStyle="bold"
             android:layout_height="wrap_content"
             android:background="@drawable/bordercolor"

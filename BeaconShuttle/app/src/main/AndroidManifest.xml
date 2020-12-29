@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bnk.test.beaconshuttle">
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -18,7 +18,8 @@
             android:screenOrientation="portrait">
         </activity>
         <activity android:name=".RouteActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false">
         </activity>
         <service android:name=".service.SearchBeaconService"
             android:stopWithTask="false"/>
