@@ -140,8 +140,8 @@ public class RouteActivity extends AppCompatActivity {
 
 
     public void goClick(View v){
-        go.setVisibility(View.GONE);
         leave.setVisibility(View.VISIBLE);
+        go.setVisibility(View.INVISIBLE);
         checkGoLeave = new String("출근");
         init();
         getData();
@@ -149,8 +149,8 @@ public class RouteActivity extends AppCompatActivity {
 
 
     public void leaveClick(View v){
-        leave.setVisibility(View.GONE);
         go.setVisibility(View.VISIBLE);
+        leave.setVisibility(View.INVISIBLE);
         checkGoLeave = new String("퇴근");
         init();
         getData();
