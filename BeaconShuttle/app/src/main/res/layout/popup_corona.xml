@@ -69,7 +69,7 @@
                 android:layout_height="34dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="30dp"
-                android:text="1. 발열 또는 호흡기 증상(기침, 가래, 인후통, 콧물), 새로 생긴 후각이나 미각 소실 여부"
+                android:text="1. 발열 또는 호흡기 증상(기침, 가래, 인후통, 콧물), 새로 생긴 후각이나 미각 소실 여부가 있습니까?"
                 android:textColor="#333333"
                 android:textSize="14dp" />
 
@@ -109,7 +109,7 @@
                 android:layout_height="34dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="25dp"
-                android:text="2. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:text="2. 최근 14일 이내 해외 방문하신 적이 있습니까?"
                 android:textColor="#333333"
                 android:textSize="14dp" />
 
@@ -147,7 +147,7 @@
                 android:layout_height="34dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="30dp"
-                android:text="3. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:text="3. 최근 14일 이내에 호흡기 증상이 나타난 적이 있습니까?"
                 android:textColor="#333333"
                 android:textSize="14dp" />
 
@@ -185,7 +185,7 @@
                 android:layout_height="34dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="25dp"
-                android:text="4. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:text="4. 최근 14일 이내 코로나19 확진자 또는 밀접접촉자와 접촉하신 적이 있습니까?"
                 android:textColor="#333333"
                 android:textSize="14dp" />
 
@@ -223,7 +223,7 @@
                 android:layout_height="34dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="25dp"
-                android:text="5. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:text="5. 보건당국으로부터 코로나19 자가격리 통보를 받은 적이 있습니까?"
                 android:textColor="#333333"
                 android:textSize="14dp" />
 
@@ -262,7 +262,7 @@
                 android:layout_height="34dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="25dp"
-                android:text="6. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:text="6. 최근 14일 이내 확진자 다수 발생 지역 및 장소에 다녀오신 적이 있습니까?"
                 android:textColor="#333333"
                 android:textSize="14dp"/>
 
@@ -301,7 +301,7 @@
                 android:layout_height="34dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="25dp"
-                android:text="7. 최근 14일 이내 해외 방문 및 확진자의 접촉자로 자가격리 대상자"
+                android:text="7. 현재 마스크를 착용하고 계십니까?"
                 android:textColor="#333333"
                 android:textSize="14dp" />
 
