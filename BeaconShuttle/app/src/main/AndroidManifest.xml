@@ -18,8 +18,7 @@
             android:screenOrientation="portrait">
         </activity>
         <activity android:name=".RouteActivity"
-            android:screenOrientation="portrait"
-            android:hardwareAccelerated="false">
+            android:screenOrientation="portrait">
         </activity>
         <service android:name=".service.SearchBeaconService"
             android:stopWithTask="false"/>
