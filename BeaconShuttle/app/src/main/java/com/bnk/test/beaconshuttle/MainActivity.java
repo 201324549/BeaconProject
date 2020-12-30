@@ -309,7 +309,8 @@ public class MainActivity extends AppCompatActivity {
             dateTextView.setText(today);
             comGroupTextView.setText(user.getCmgrp_cd());
             userNameTextView.setText(user.getUser_nm());
-            destination.setText(busType);
+            destination.setText(busType + " - 미음");
+
             rot = null;
         } else {
             timeTextView.setText(time);
