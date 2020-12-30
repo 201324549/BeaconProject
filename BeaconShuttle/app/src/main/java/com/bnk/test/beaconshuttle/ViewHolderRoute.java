@@ -52,6 +52,7 @@ public class ViewHolderRoute extends RecyclerView.ViewHolder {
 
     public void onBind(DataRoute data, int position, SparseBooleanArray selectedItems) {
         rot_nm.setText(data.getRot_nm());
+        rot_nm.setPadding(75, 40 , 0, 40);
         stoplist.removeAllViews();
         stopline.removeAllViews();
         int cnt = 1;
