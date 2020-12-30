@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private DataHelper mDataHelper;
     private SQLiteDatabase db;
+    private SQLiteDatabase writeDB;
+    private DataHelper wDataHelper;
     private Cursor cur;
     private String[] beaconProjection = {"BCN_ID", "BCN_NM"};
     private HashMap<String, String> beaconMap = new HashMap<>();
@@ -123,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         mDataHelper = new DataHelper(this);
         createDataBase();
         db = mDataHelper.getReadableDatabase();
+        writeDB = mDataHelper.getWritableDatabase();
         cur = db.query("BO_STBM_BCN", beaconProjection, null, null, null, null, null);
 
         if (cur != null) {
@@ -243,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
                     builder.setView(layout);
                     dialog = builder.create();// 대화상자 객체 생성&화면보이기
                     dialog.show();
-
+                    dbInsert("김민석", 9, "경영기획본부", "경영개발부", "출근", "사상");
                 } else {
                     Toast.makeText(v.getContext(), "비콘 탐색에 실패하였습니다." , Toast.LENGTH_LONG).show();
                 }
@@ -264,6 +268,23 @@ public class MainActivity extends AppCompatActivity {
 //        } else {
 //            Toast.makeText(v.getContext(), "비콘 검색 실패", Toast.LENGTH_SHORT).show();
 //        }
+    }
+
+    private void dbInsert(String PER_NM, int COM_GROP_ID, String HDQ_NM, String DEPT_NM, String WORK, String ROT_NM){
+        ContentValues contentValues = new ContentValues();
+        Date date = new Date(System.currentTimeMillis());
+        String time = new SimpleDateFormat("HH:mm").format(date);
+        String today = new SimpleDateFormat("yyyy.MM.dd").format(date);
+        contentValues.put("BRD_DT", today);
+        contentValues.put("BRD_TM", time);
+        contentValues.put("COM_GROP_ID", COM_GROP_ID);
+        contentValues.put("HDQ_NM", HDQ_NM);
+        contentValues.put("DEPT_NM", DEPT_NM);
+        contentValues.put("WORK", WORK);
+        contentValues.put("ROT_NM", ROT_NM);
+
+        writeDB.insert("BO_STBM_LOG", null , contentValues);
+
     }
 
     private void setBeaconText(View v, User user, String busType) {
