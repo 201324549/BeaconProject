@@ -69,7 +69,7 @@
                 android:layout_height="34dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="30dp"
-                android:text="1. 발열 또는 호흡기 증상(기침, 가래, 인후통, 콧물), 새로 생긴 후각이나 미각 소실 여부가 있습니까?"
+                android:text="1. 발열 또는 호흡기 증상(기침, 가래, 인후통, 콧물)의 여부가 있습니까?"
                 android:textColor="#333333"
                 android:textSize="14dp" />
 
@@ -147,7 +147,7 @@
                 android:layout_height="34dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="30dp"
-                android:text="3. 최근 14일 이내에 호흡기 증상이 나타난 적이 있습니까?"
+                android:text="3. 두통, 근육통, 새로 생긴 후각이나 미각 소실 증상이 나타난 적이 있습니까?"
                 android:textColor="#333333"
                 android:textSize="14dp" />
 
