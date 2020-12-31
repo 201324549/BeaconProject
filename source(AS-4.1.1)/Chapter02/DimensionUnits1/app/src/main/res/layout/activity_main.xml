@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <Button
+        android:layout_width="240px"
+        android:layout_height="wrap_content"
+        android:text="폭 240px"/>
+    <Button
+        android:layout_width="25.4mm"
+        android:layout_height="wrap_content"
+        android:text="폭 25.4mm"/>
+    <Button
+        android:layout_width="1in"
+        android:layout_height="wrap_content"
+        android:text="폭 1in"/>
+    <Button
+        android:layout_width="72pt"
+        android:layout_height="wrap_content"
+        android:text="폭 72pt"/>
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="폭 160dp"/>
+    <Button
+        android:layout_width="160sp"
+        android:layout_height="wrap_content"
+        android:text="폭 160sp"/>
+</LinearLayout>

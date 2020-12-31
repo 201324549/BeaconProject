@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">StringTest</string>
+    <string name="msg1">Hello, Android!</string>
+    <string name="msg2">I\'ll be back.</string>
+    <string name="msg3">This is a \"good thing\".</string>
+    <string name="msg4"><b>Think</b> like a man of <i>action</i>
+        <u>and</u> <b>act</b> like man of <i>thought</i>.</string>
+</resources>

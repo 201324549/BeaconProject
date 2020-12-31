@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/btnTest1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="내부 액티비티 실행 (1)"/>
+    <Button
+        android:id="@+id/btnTest2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="내부 액티비티 실행 (2)"/>
+    <Button
+        android:id="@+id/btnTest3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="메인 액티비티 실행"/>
+    <Button
+        android:id="@+id/btnTest4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="전화걸기 액티비티 실행"/>
+    <Button
+        android:id="@+id/btnTest5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="웹보기 액티비티 실행"/>
+    <Button
+        android:id="@+id/btnTest6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="홈화면 액티비티 실행"/>
+</LinearLayout>
