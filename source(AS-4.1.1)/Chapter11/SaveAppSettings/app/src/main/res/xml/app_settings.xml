@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="사용자 정보 입력">
+        <EditTextPreference
+            android:key="name"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="이름을 입력하십시오."
+            android:title="이름 입력"/>
+        <EditTextPreference
+            android:defaultValue="22"
+            android:inputType="number"
+            android:key="age"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="나이를 입력하십시오."
+            android:title="나이 입력"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="man"
+            android:summaryOff="여자입니다."
+            android:summaryOn="남자입니다."
+            android:title="성별"/>
+    </PreferenceCategory>
+</PreferenceScreen>

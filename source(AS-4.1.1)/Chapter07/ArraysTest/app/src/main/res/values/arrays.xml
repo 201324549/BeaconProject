@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fruits">
+        <item>사과</item>
+        <item>바나나</item>
+        <item>딸기</item>
+        <item>포도</item>
+        <item>파인애플</item>
+    </string-array>
+    <integer-array name="fibonacci">
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>8</item>
+        <item>13</item>
+    </integer-array>
+</resources>

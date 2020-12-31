@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/clrBackground"
+    android:orientation="vertical">
+    <Button
+        android:id="@id/btnGetBool"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:onClick="mOnClick"
+        android:text="부울값 출력"/>
+    <Button
+        android:id="@id/btnGetInt"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
+        android:onClick="mOnClick"
+        android:text="정숫값 출력"/>
+</LinearLayout>

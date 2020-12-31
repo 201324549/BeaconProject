@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:text="부트 완료(ACTION_BOOT_COMPLETED),
+      \n표준시간대 변경(ACTION_TIMEZONE_CHANGED),
+      \n헤드셋 플러그(ACTION_HEADSET_PLUG)
+      \n이벤트를 감지합니다."
+    android:textSize="14dp"
+    android:textStyle="bold|italic">
+</TextView>

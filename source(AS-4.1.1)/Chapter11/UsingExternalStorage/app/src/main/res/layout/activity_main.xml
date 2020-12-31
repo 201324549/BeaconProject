@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이름 입력"/>
+    <Button
+        android:id="@+id/btnSave1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="저장하기(외부 공용 저장소)"/>
+    <Button
+        android:id="@+id/btnLoad1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="읽어오기(외부 공용 저장소)"/>
+    <Button
+        android:id="@+id/btnSave2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="저장하기(외부 전용 저장소)"/>
+    <Button
+        android:id="@+id/btnLoad2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="읽어오기(외부 전용 저장소)"/>
+</LinearLayout>

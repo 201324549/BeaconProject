@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="테스트 문장 #1\nTest sentence #1"
+        android:textColor="#ff00ff"
+        android:textSize="20sp"
+        android:typeface="monospace"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:letterSpacing="0.05"
+        android:lineSpacingMultiplier="1.2"
+        android:text="테스트 문장 #2\nTest sentence #2"
+        android:textSize="20sp"
+        android:typeface="monospace"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:autoLink="web|email"
+        android:text="웹: http://www.google.com\n메일: someone@example.com"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="긴 문장입니다. 공간이 부족하면 생략 표시가 되는지 확인합시다."
+        android:textSize="24sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="4dp"
+        android:drawableTop="@mipmap/ic_launcher"
+        android:text="앱 아이콘입니다."/>
+</LinearLayout>
